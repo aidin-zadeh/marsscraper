@@ -1,6 +1,8 @@
 
 import argparse
 from flask import Flask, render_template, redirect
+app = Flask(__name__)
+
 from pymongo import MongoClient
 from marsscraper import scrape
 
@@ -43,7 +45,6 @@ argparser.add_argument(
 )
 
 
-app = Flask(__name__)
 
 # create connection variable
 conn = "mongodb://localhost:27017"
@@ -82,4 +83,4 @@ if __name__ == "__main__":
 
     global args
     args = argparser.parse_args()
-    app.run(debug=True, host=args.host, port=args.port)
+    app.run(debug=False, host=args.host, port=args.port)

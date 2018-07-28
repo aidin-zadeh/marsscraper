@@ -9,6 +9,12 @@ This repository contains a Python project that illustrates a web application scr
 
 ## Data
 The data utilized in this project were scraped from the following sources:
+- [NASA Mars News Site](https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest)
+- [JPL Mars Space Images](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
+- [Mars Weather Twitter Account](https://twitter.com/marswxreport?lang=en)
+- [Mars Fact Web Page](https://space-facts.com/mars/)
+- [USGS Asterogeology site](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
+
 ## Report
 
 ## Requirements
@@ -24,8 +30,22 @@ The data utilized in this project were scraped from the following sources:
 - pymongo           3.7.0 
 
 ## Directory Structure
-```bash
-          
+```
+.
+├── docs                <- Documents related to this project.
+├── images              <- Images for README.md files.
+├── marsscraper         <- source files used in this project.
+│   ├── conf
+│   ├── data
+│   │   ├── ext
+│   │   ├── int
+│   │   └── raw
+│   └── scripts
+│       └── templates
+├── notebooks           <- Ipythoon Notebook files
+└── reports             <- Generated analysis as HTML, PDF, Latex, etc.
+    ├── figures         <- Generated graphics and figures used in reporting.
+    └── logs            <- Generated log files.         
 ```
 ## Installation
 Install python dependencies from  `requirements.txt` using conda.
@@ -33,17 +53,35 @@ Install python dependencies from  `requirements.txt` using conda.
 conda install --yes --file requirements.txt
 ```
 
-Or create a new conda environment `<new-env-name>` by importing a copy of a working conda environment at the project root directory :`mars-scraper.yml`.
+Or create a new conda environment `<new-env-name>` by importing a copy of a working conda environment at the project root directory :`marsscraper.yml`.
 ```bash
-conda env create --name <new-env-name> -f mars-scraper.yml
+conda env create --name <new-env-name> -f marsscraper.yml
 ```
 ## Usage
+```bash
+python -m marsscraper.scripts.webapp -h
+usage: webapp.py [-h] [-s HOST] [-p PORT] [-w WEBDRIVER] [-d DRIVERPATH]
 
+Runs Flask scrapper application server
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s HOST, --host HOST  Host name to listen. Default=`127.0.0.1` (local host)
+  -p PORT, --port PORT  Port to listen. Default=5000
+  -w WEBDRIVER, --webdriver WEBDRIVER
+                        Web driver name. Default=`chrome`
+  -d DRIVERPATH, --driverpath DRIVERPATH
+                        Web driver path. Default=`/usr/local/bin/chromedriver`
+
+Example of use: `python -m marsscraper.scripts.webapp.py --host 127.0.0.1
+--port 5000 --webdriver chrome --driverpath /usr/local/bin/chromedriver`
+
+```
 ## References
 
 ## To Do
 - [ ] TBA
 
 ## License 
-
+MIT license
 
