@@ -42,7 +42,8 @@ def scrape(driver, driverpath):
         browser.visit(url)
         time.sleep(T)
         # navigate to link
-        browser.click_link_by_partial_text("FULL IMAGE")
+        browser.click_link_by_id("full_image")
+        # browser.click_link_by_partial_text("FULL IMAGE")
         time.sleep(T)
         browser.click_link_by_partial_text("more info")
         time.sleep(T)

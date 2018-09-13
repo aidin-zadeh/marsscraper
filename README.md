@@ -73,7 +73,7 @@ optional arguments:
   -d DRIVERPATH, --driverpath DRIVERPATH
                         Web driver path. Default=`/usr/local/bin/chromedriver`
 
-Example of use: `python -m marsscraper.scripts.webapp.py --host 127.0.0.1
+Example of use: `python -m marsscraper.scripts.webapp --host 127.0.0.1
 --port 5000 --webdriver chrome --driverpath /usr/local/bin/chromedriver`
 
 ```
